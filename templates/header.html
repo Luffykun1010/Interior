@@ -1,0 +1,47 @@
+{%load static%}
+<div class="header-area header-transparent">
+    <div class="main-header header-sticky">
+        <div class="container-fluid">
+            <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index"><img src="{%static 'assets/img/logo/logo.png' %}" alt=""></a>
+                </div>
+                <!-- Main-menu -->
+                <div class="main-menu f-right d-none d-lg-block">
+                    <nav>
+                        <ul id="navigation">
+                            <li><a href="index">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="services">Services</a></li>
+                            <li><a href="work">Gallery</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="contact">Contact</a></li>
+                            {%if request.user.is_authenticated %}
+                            <li><a href="posts">Posts</a></li>
+                            <li><a href="requests">Requests</a></li>
+                            {%endif%}
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Header-btn -->
+                {%if request.user.is_authenticated %}
+                <div class="header-btns d-none d-lg-block f-right">
+                    <a href="landing" class="btn header-btn">Landing</a>
+                </div>
+                <div class="header-btns d-none d-lg-block f-right">
+                    <a href="logout" class="btn btn-primary">Logout</a>
+                </div>
+                {%else%}
+                <div class="header-btns d-none d-lg-block f-right">
+                    <a href="register" class="btn header-btn">Sign In / Sign Up</a>
+                </div>
+                {%endif%}
+                <!-- Mobile Menu -->
+                <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
